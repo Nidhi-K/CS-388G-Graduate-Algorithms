@@ -1,0 +1,86 @@
+% To compile, run the following command:
+%   latexmk -pdf hw_template.tex 
+%
+% To edit, you can use your favorite text editor or LaTeX editors such as:
+%   Texmaker and TeXworks.
+%
+% To setup your own TeX system, you can install TeX Live. See:
+%   https://www.tug.org/texlive/
+
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+\usepackage{mathtools}
+\usepackage{algorithm,algpseudocode}
+\usepackage{hyperref}
+
+\theoremstyle{remark}
+\newtheorem{claim}{Claim}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\ceiling{\lceil}{\rceil}
+
+\begin{document}
+
+\title{CS388G Problem Set \#1}
+\date{\today}
+\author{Name (eid)}
+\maketitle
+
+\section*{1}
+
+Your solution goes here. The source code of this template is available for
+download on Canvas. See the comments at the top of the source code for
+instructions to compile.
+
+This is the second paragraph. Here are some examples for typesetting algorithms,
+claims, and equations.
+
+\begin{algorithm}
+\caption{Euclid's algorithm} \label{alg:euclid}
+\begin{algorithmic}[1]
+\Function{Euclid}{$a, b$}
+  \State $r \gets a \bmod b$
+  \While{$r \neq 0$} \label{lne:loop}
+    \State $a \gets b$
+    \State $b \gets r$
+    \State $r \gets a \bmod b$
+  \EndWhile
+  \State \Return $b$ \Comment{The gcd is $b$}
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+\begin{claim} \label{clm:time}
+Algorithm~\ref{alg:euclid} runs in $O( \log(a b) )$ time.
+\end{claim}
+
+\begin{proof}
+Notice that
+\begin{equation}
+\log(a) + \log(b) = \log(a b). \label{eqn:log}
+\end{equation}
+So, if we can show that line~\ref{lne:loop} is executed for at most
+$\log(a) + \log(b)$ times, then \eqref{eqn:log} implies the running time of
+$O( \log(a b) )$.
+\end{proof}
+
+\clearpage{}
+\section*{2(a)}
+
+Your solution goes here.
+
+\clearpage{}
+\section*{2(b)}
+
+Your solution goes here.
+
+%\clearpage{}
+%\section*{3(a)}
+
+%\clearpage{}
+%\section*{3(b)}
+
+\end{document}
